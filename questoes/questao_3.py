@@ -45,7 +45,42 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 3")
+    
+    texto = input('Digite a mensagem a ser encriptada ou decifrada: ')# Solicitando o texto a ser encriptado ou decriptado:
+
+    chave = int(input('Entre com o valor da chave (deslocamento): '))# Chave a ser utilizada
+
+    modo = input('Escolha E para encriptar ou D para decriptar o texto: ')# Determinar modo de operação (E = encriptar; D = decriptar)
+
+    CARACTERES = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'# Conjunto de caracteres válidos no algoritmo
+
+    convertido = ''# Variável para armazenar o texto criptografado (ou decifrado)
+
+    texto = texto.upper()# Converter todo o texto em maiúsculas:
+    for caractere in texto:# Código que será executdo em cada caractere do texto:
+      if caractere in CARACTERES:
+ 
+       num = CARACTERES.find(caractere) # Obter o número criptografado ou decriptado do caractere
+ 
+       if modo == 'E':# Obter o número do caractere
+         num = num + chave
+       elif modo == 'D':
+         num = num - chave
+ 
+      if num >= len(CARACTERES):# Manipulando a rotação se o valor de num for maior do que o comprimento de CARACTERES ou menor que 0
+        num = num - len(CARACTERES)
+      elif num < 0:
+        num = num + len(CARACTERES)
+ 
+        convertido = convertido + CARACTERES[num]# Adicionar (concatenar) o caractere correspondente a num na variável convertido 
+      else:
+        convertido = convertido + caractere# Concatenado o caractere sem efetuar criptografia ou decifragem
+
+    if modo == 'E':# Mostrar o texto encriptado ou decifrado na tela:
+       print('O texto criptografado é ', convertido)
+    if modo == 'D':
+       print('O texto decriptado é ', convertido)
+
 
 
     

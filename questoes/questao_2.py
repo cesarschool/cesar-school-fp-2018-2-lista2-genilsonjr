@@ -38,8 +38,28 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 2")
+    pos= float(input("Coloque os passos:\n"))
+    moves={"UP":1j,
+           "DOWN":-1j,
+           "LEFT":-1,
+           "RIGHT":1}
 
+
+    data=["UP 5",
+          "DOWN 3",
+          "LEFT 3",
+          "RIGHT 2"]
+
+
+    for inp in data:
+        parts=inp.split()    
+        mv=parts[0]
+        val=parts[1]
+        print (mv, val)
+        pos += moves[mv]*int(val)
+
+#get distance     
+    print('distância percorrida:', round(abs(pos)))  
 
     
 if __name__ == '__main__':
