@@ -46,40 +46,40 @@
 ##
 def main():
     
-    texto = input('Digite a mensagem a ser encriptada ou decifrada: ')# Solicitando o texto a ser encriptado ou decriptado:
+    texto = input('Digite a mensagem a ser encriptada ou decifrada: ')
 
-    chave = int(input('Entre com o valor da chave (deslocamento): '))# Chave a ser utilizada
+    ROT = int(input('Entre com o valor do ROT: '))
 
-    modo = input('Escolha E para encriptar ou D para decriptar o texto: ')# Determinar modo de operação (E = encriptar; D = decriptar)
+    modo = input('Escolha E para encriptar ou D para decriptar o texto: ')
 
-    CARACTERES = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'# Conjunto de caracteres válidos no algoritmo
+    CARACTERES = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-    convertido = ''# Variável para armazenar o texto criptografado (ou decifrado)
+    convertido = ''
 
-    texto = texto.upper()# Converter todo o texto em maiúsculas:
-    for caractere in texto:# Código que será executdo em cada caractere do texto:
+    texto = texto.upper()
+    for caractere in texto:
       if caractere in CARACTERES:
  
-       num = CARACTERES.find(caractere) # Obter o número criptografado ou decriptado do caractere
+       num = CARACTERES.find(caractere) 
  
-       if modo == 'E':# Obter o número do caractere
-         num = num + chave
+       if modo == 'E':
+         num = num + ROT
        elif modo == 'D':
-         num = num - chave
+         num = num - ROT
  
-      if num >= len(CARACTERES):# Manipulando a rotação se o valor de num for maior do que o comprimento de CARACTERES ou menor que 0
+      if num >= len(CARACTERES):
         num = num - len(CARACTERES)
       elif num < 0:
         num = num + len(CARACTERES)
  
-        convertido = convertido + CARACTERES[num]# Adicionar (concatenar) o caractere correspondente a num na variável convertido 
+        convertido = convertido + CARACTERES[num] 
       else:
-        convertido = convertido + caractere# Concatenado o caractere sem efetuar criptografia ou decifragem
+        convertido = convertido + caractere
 
-    if modo == 'E':# Mostrar o texto encriptado ou decifrado na tela:
-       print('O texto criptografado é ', convertido)
+    if modo == 'E':
+       print("ROT" ,ROT ,":" ,convertido)
     if modo == 'D':
-       print('O texto decriptado é ', convertido)
+       print("ROT" ,ROT ,":" ,convertido)
 
 
 

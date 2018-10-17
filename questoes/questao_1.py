@@ -29,28 +29,30 @@
 ##
 def main():
     import re
-    s= input("Coloque a sua senha:\n")#inserindo a senha
-    x = True                          #atribuindo valor a x sendo verdadeira
-    while x:                          #enquanto x e verdadeira
-         if (len(s)<=6 or len(s)>13): #
-                 break
-         elif not re.search("[a-z]",s):
-                 break
-         elif not re.search("[0-9]",s):
-                 break
-         elif not re.search("[A-Z]",s):
-                 break
-         elif not re.search("[$#@]",s):
-                 break
-         elif re.search("\s", s):
-                 break
-         else:
-            print("Sua senha esta valida:\n",s)
-            x=False
-            break
+    s= input("Coloque a sua senha:\n")
+    
+    x = True
+    while x:                          
+           if (len(s)<=6 or len(s)>13): 
+                         break
+           elif not re.search("[a-z]",s):
+                        break
+           elif not re.search("[0-9]",s):
+                        break
+           elif not re.search("[A-Z]",s):
+                        break
+           elif not re.search("[$#@]",s):
+                        break
+           elif re.search("\s", s):
+                        break
+           else:
+                print("Sua senha esta valida:\n",s)
+                x=False
+                break
 
     if x:
         print("senha invalida.")
+
 
     
     
